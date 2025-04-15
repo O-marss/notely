@@ -1,0 +1,29 @@
+/* [project]/src/app/globals.css [app-client] (css) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a, a:active, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: 700;
+  flex: 1 1 0;
+  color: #00000050;
+}
+
+.subLogo {
+  color: #fff;
+  font-size: 40px !important;
+  font-weight: 700 !important;
+}
+
+/*# sourceMappingURL=src_app_globals_b52d8e88.css.map*/
