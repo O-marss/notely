@@ -1,12 +1,7 @@
-const nextConfig = {
-  output: 'export',
-  distDir:'dist',
-  images:{
-    unoptimized:true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-},
-};
+const isGithubPages = process.env.NODE_ENV === 'production'
 
-export default nextConfig;
+module.exports = {
+  basePath: isGithubPages ? '/notely' : '',
+  assetPrefix: isGithubPages ? '/notely/' : '',
+  trailingSlash: true,
+}
