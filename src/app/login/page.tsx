@@ -1,12 +1,10 @@
 "use client";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useAuth } from "../store/useAuth";
 import { useMutation } from "@tanstack/react-query";
-import { log } from "console";
 
 export default function Login() {
   const router = useRouter();
@@ -33,7 +31,7 @@ export default function Login() {
     }
   })
 
-  let { handleBlur, handleChange, handleSubmit, values } = useFormik({
+  const {handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
       password: "",

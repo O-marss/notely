@@ -1,16 +1,9 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
-import Navbar from "./_Components/navbar";
 import { Montserrat } from "next/font/google";
 import { TanStackProvider } from "./_Components/providers/tanstack";
-
-const metadata: Metadata = {
-  title: "NOTIFY",
-  description: "Note your day",
-};
 
 const montserrat = Montserrat({
   subsets: ["latin"],

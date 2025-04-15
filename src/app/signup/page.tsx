@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Container,
-  styled,
   TextField,
   Typography,
 } from "@mui/material";
@@ -20,7 +19,7 @@ export default function SignUp() {
     phone: string;
   }) {
     try {
-      let response = await fetch(
+      const response = await fetch(
         `https://note-sigma-black.vercel.app/api/v1/users/signUp`,
         {
           method: "POST",
@@ -30,15 +29,14 @@ export default function SignUp() {
           },
         }
       );
-      let data = await response.json();
+      return await response.json();
 
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
   }
 
-  let { handleBlur, handleChange, handleSubmit, values } = useFormik({
+  const {  handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -94,7 +92,7 @@ export default function SignUp() {
               marginTop: "30px",
             }}
           >
-            Already have an account?{" "}
+            Already have an account?
             <span>
               <Link href={"/login"}>Sign in</Link>
             </span>

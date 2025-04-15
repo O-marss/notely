@@ -1,9 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 39, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/omarm/Desktop/notify/src/app/theme.ts"],"sourcesContent":["\"use client\";\r\nimport { createTheme } from \"@mui/material/styles\";\r\n\r\nconst theme = createTheme({\r\n  typography: {\r\n    fontFamily: \"var(--font-roboto)\",\r\n  },\r\n});\r\n\r\nexport default theme;\r\n"],"names":[],"mappings":";;;AACA;AADA;;AAGA,MAAM,QAAQ,CAAA,GAAA,oNAAA,CAAA,cAAW,AAAD,EAAE;IACxB,YAAY;QACV,YAAY;IACd;AACF;uCAEe","debugId":null}},
-    {"offset": {"line": 51, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 57, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/omarm/Desktop/notify/src/app/_Components/providers/tanstack.tsx"],"sourcesContent":["\"use client\";\r\nimport { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\r\nimport { useState } from \"react\";\r\n\r\ninterface TanStackProviderProps {\r\n  children: React.ReactNode;\r\n}\r\n\r\nexport const queryCLient = new QueryClient();\r\n\r\nexport const TanStackProvider = ({ children }: TanStackProviderProps) => {\r\n\r\n  return (\r\n    <QueryClientProvider client={queryCLient}>{children}</QueryClientProvider>\r\n  );\r\n};\r\n"],"names":[],"mappings":";;;;;AACA;AAAA;AADA;;;AAQO,MAAM,cAAc,IAAI,6KAAA,CAAA,cAAW;AAEnC,MAAM,mBAAmB,CAAC,EAAE,QAAQ,EAAyB;IAElE,qBACE,8OAAC,sLAAA,CAAA,sBAAmB;QAAC,QAAQ;kBAAc;;;;;;AAE/C","debugId":null}},
-    {"offset": {"line": 78, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

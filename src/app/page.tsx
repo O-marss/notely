@@ -1,6 +1,5 @@
 "use client";
 import { Box, Container } from "@mui/material";
-import styles from "./page.module.css";
 import NoteCard from "./_Components/noteCard";
 import { useEffect } from "react";
 import { useAuth } from "./store/useAuth";
@@ -14,7 +13,7 @@ export default function Home() {
     if(!auth.isAuthenticated){
       router.push('/login')
     }
-  },[])
+  },[auth.isAuthenticated, router])
   
   return (
     <Container

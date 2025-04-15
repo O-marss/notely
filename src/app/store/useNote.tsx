@@ -2,12 +2,12 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useAuth } from "./useAuth";
 import { queryCLient } from "../_Components/providers/tanstack";
-import { Note, Root } from "../interfaces";
+import { Root } from "../interfaces";
 
 export default function useNote() {
-  let { token } = useAuth();
+  const { token } = useAuth();
   async function getNotes() {
-    let response = await fetch(
+    const response = await fetch(
       `https://note-sigma-black.vercel.app/api/v1/notes`,
       {
         method: "GET",
@@ -18,7 +18,7 @@ export default function useNote() {
     return await response.json();
   }
 
-  let notesData = useQuery({
+  const notesData = useQuery({
     queryKey: ["getUserNotes"],
     queryFn: getNotes,
     enabled: !!token,
@@ -36,7 +36,7 @@ export default function useNote() {
     return (await response).json();
   }
 
-  let addResponse = useMutation({
+  const addResponse = useMutation({
     mutationFn: addNote,
     onMutate:({title, content})=>{
       const oldData = queryCLient.getQueryData<Root>(["getUserNotes"]);

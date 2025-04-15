@@ -13,7 +13,7 @@ import ViewCard from "./viewCard";
 import NoteInput from "./noteInput";
 
 export default function NoteCard() {
-  let {notesData: { data },deleteResponse, addResponse} = useNote();
+  const {notesData: { data },deleteResponse, addResponse} = useNote();
   const [editing, setEditing] = useState(false);
   const [note, setNote] = useState({
     title: "",

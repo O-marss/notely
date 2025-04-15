@@ -14,7 +14,6 @@ export default function NoteInput({
   editing,
   setEditing,
   note,
-  setNote,
 }: EditCardProps) {
   const { addResponse, updateResponse } = useNote();
 
@@ -53,7 +52,7 @@ export default function NoteInput({
         content: note.content,
       });
     }
-  }, [ editing,note]);
+  }, [ editing,note,setValues]);
 
   return (
     <Box

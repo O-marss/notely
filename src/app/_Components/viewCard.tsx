@@ -2,7 +2,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import {ViewCardProps } from "../interfaces";
 
-export default function ViewCard({ reading, setReading, note }: ViewCardProps) {
+export default function ViewCard({ setReading, note }: ViewCardProps) {
 
   const handleExit = () => {
     setReading(false);
