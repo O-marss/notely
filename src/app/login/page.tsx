@@ -5,38 +5,42 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useAuth } from "../store/useAuth";
 import { useMutation } from "@tanstack/react-query";
+import Link from "next/link";
 
 export default function Login() {
   const router = useRouter();
   const auth = useAuth();
   async function login(values: { email: string; password: string }) {
-    const response = await fetch(`https://note-sigma-black.vercel.app/api/v1/users/signIn`, {
-      method: "POST",
-      body: JSON.stringify(values),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    return await response.json()
+    const response = await fetch(
+      `https://note-sigma-black.vercel.app/api/v1/users/signIn`,
+      {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    return await response.json();
   }
 
   const loginResponse = useMutation({
-    mutationFn:login,
+    mutationFn: login,
     onSuccess: (data) => {
       auth.setToken(data.token);
       router.push(`/`);
     },
     onError: (error) => {
-      console.error('Login error:', error);
-    }
-  })
+      console.error("Login error:", error);
+    },
+  });
 
-  const {handleChange, handleSubmit, values } = useFormik({
+  const { handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (values)=>loginResponse.mutate(values),
+    onSubmit: (values) => loginResponse.mutate(values),
   });
 
   return (
@@ -76,6 +80,18 @@ export default function Login() {
             sx={{ textAlign: "center", fontSize: "18px", marginTop: "20px" }}
           >
             We are so excited to have you here.
+          </Typography>
+
+          <Typography
+            sx={{
+              textAlign: "center",
+              backgroundColor: "#003092",
+              padding: "10px 20px",
+              borderRadius: "20px",
+              marginTop: "30px",
+            }}
+          >
+            Don't have an account? <Link href={`/signup`}>Sign up here</Link>
           </Typography>
         </Box>
         <Box

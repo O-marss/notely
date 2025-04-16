@@ -1,11 +1,5 @@
 "use client";
-import {
-  Box,
-  Button,
-  Container,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import Link from "next/link";
 import React from "react";
@@ -30,13 +24,12 @@ export default function SignUp() {
         }
       );
       return await response.json();
-
     } catch (err) {
       console.log(err);
     }
   }
 
-  const {  handleChange, handleSubmit, values } = useFormik({
+  const { handleChange, handleSubmit, values } = useFormik({
     initialValues: {
       name: "",
       email: "",
@@ -93,9 +86,7 @@ export default function SignUp() {
             }}
           >
             Already have an account?
-            <span>
-              <Link href={"/login"}>Sign in</Link>
-            </span>
+            <Link href={"/login"}>Sign in</Link>
           </Typography>
         </Box>
         <form
