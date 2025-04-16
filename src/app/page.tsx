@@ -1,19 +1,25 @@
 "use client";
 import { Box, Container } from "@mui/material";
 import NoteCard from "./_Components/noteCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "./store/useAuth";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
   const auth = useAuth()
   const router = useRouter()
+  const [loading, setLoading] = useState(false);
 
   useEffect(()=>{
-    if(!auth.isAuthenticated){
+    setLoading(true)
+  },[])
+  
+  useEffect(()=>{
+    console.log(loading)
+    if(!auth.token && loading){
       router.push('/login')
     }
-  },[auth.isAuthenticated, router])
+  },[auth.token, router, loading])
   
   return (
     <Container
